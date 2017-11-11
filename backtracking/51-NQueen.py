@@ -9,7 +9,7 @@ def solveNQueens(n):
         # check if node is completed, return answer if it is
         # check if node can be completed
         #   ==> no, whole subtree is skipped, return
-        #   ==> yes, iteractively get next sibiling,record it if necessary
+        #   ==> yes, iteratively get next sibiling,record it if necessary
         #       ==> recursively enumerates all sub-trees of the sibiling
         #       ==> backtrack   
         ans = []
@@ -19,16 +19,16 @@ def solveNQueens(n):
             return ''.join(map(lambda x: '.' if x is '0' else 'Q',f.format(np)))
         
         # row, ld, rd are 3 bit patterns constrain possible positions
-        upper = (1<<n) - 1
+        full = (1<<n) - 1
         def bt(row,ld,rd):
-            if row == upper:
+            if row == full:
                 print(one)
                 ans.append(one)
                 return
-            pos = ~(row|ld|rd) & upper
+            pos = ~(row|ld|rd) & full
             while pos != 0:
                 # to get rightmost bit for next position
-                np = pos & (~pos + 1) & upper # or pos & -pos 
+                np = pos & (~pos + 1) & full # or pos & -pos 
                 one.append(bitToStr(np))
                 print(bitToStr(np))
                 bt(row|np, (ld|np)<< 1, (rd|np)>>1)
