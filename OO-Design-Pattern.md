@@ -1,7 +1,7 @@
 # Rust and Design Pattern for Data Structure
 
 - Sorter
-- List
+- Left Leaning Red Black Tree
 
 ### Template Method Pattern
 
