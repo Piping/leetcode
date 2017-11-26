@@ -146,9 +146,9 @@ func (node *RBTreeNode) remove(key int) *RBTreeNode {
 	return node.fixup()
 }
 func (node *RBTreeNode) minData() int {
+	//precondition node is not nil
 	for node.left != nil {
-		// return node.left.minData() // recursive
-		node = node.left
+		node = node.left // return node.left.minData() // recursive
 	}
 	return node.key
 }
@@ -203,22 +203,22 @@ func (t *RBTreeNode) print() {
 	fmt.Println(t.key)
 	t.right.print()
 }
-func (t *RBTreeNode) pprint(indent int) {
-	if t == nil {
+func (node *RBTreeNode) pprint(indent int) {
+	if node == nil {
 		return
 	}
 	indent += 7
-	t.right.pprint(indent)
+	node.right.pprint(indent)
 	fmt.Println()
 	for i := 7; i < indent; i++ {
 		fmt.Print(" ")
 	}
-	if t.color {
-		fmt.Println("Blk", t.key)
+	if node.color {
+		fmt.Println("Blk", node.key)
 	} else {
-		fmt.Println("Red", t.key)
+		fmt.Println("Red", node.key)
 	}
-	t.left.pprint(indent)
+	node.left.pprint(indent)
 }
 func (t *RBTree) print() {
 	if t == nil {
