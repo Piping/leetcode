@@ -227,16 +227,16 @@ func (t *RBTree) print() {
 	t.root.pprint(0)
 }
 func main() {
-	t := new(RBTree) //uninitialized,root is nil
-	t.insert(9)
-	t.insert(8)
-	t.insert(7)
-	t.insert(6)
-	t.insert(3)
+	tree := new(RBTree) //uninitialized,root is nil
+	tree.insert(9)
+	tree.insert(8)
+	tree.insert(7)
+	tree.insert(6)
+	tree.insert(3)
 	fmt.Println(t.contains(3))
-	t.print()
-	t.remove(9)
-	t.remove(2)
+	tree.print()
+	tree.remove(9)
+	tree.remove(2)
 	fmt.Println(t.root.minData())
-	t.print()
+	tree.print()
 }
